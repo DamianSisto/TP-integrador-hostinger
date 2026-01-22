@@ -50,7 +50,7 @@ header .header__left-content nav a{
     gap: 32px;
 }
 
-.header__rigth-content__lang-btn{
+.header__right-content__lang-btn{
     border: none;
     background-color: transparent;
     display: flex;
@@ -61,7 +61,7 @@ header .header__left-content nav a{
     font-size: 16px;
 }
 
-.header__rigth-content__lang-btn img{
+.header__right-content__lang-btn img{
     width: 32px;
 }
 
@@ -96,81 +96,154 @@ header .header__left-content nav a{
     }
 }
 
-main {
-    margin-top: 70px;
+main{
+    margin-top: 50px;
 }
 
-main section {
-    top: 25px;
+/* Reset recomendado (evita corrimientos por default margins) */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* HERO */
+.intro-section{
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 48px;
     gap: 48px;
+
+  /* comportamiento Hostinger: contenedor centrado */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 24px;
 }
 
-.section_left {
-    flex: 1;
+/* COLUMNA IZQUIERDA */
+.section_left{
+    flex: 1 1 520px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
 }
 
-.section_rigth {
-    flex: 1;
-    min-height: 400px;
+/* COLUMNA DERECHA */
+.section_right{
+    flex: 1 1 520px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-main section .section_left .span_header span{
+/* TEXTOS */
+.span_header span{
     color: #673DE6;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
-main section .section_left h2{
-    font-size: 36px;
-    font-weight: 400;
+.h2_left h2{
+    font-size: clamp(40px, 4vw, 56px);
+    line-height: 1.05;
+    font-weight: 500;
+    margin: 0;
 }
 
-main section .image_section{
-    height: 50px;
-    width: auto;
+/* CHECKLIST (ul + li) */
+.section_check{
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-section .section_left .section_check svg{
-    height: 24px;
-    align-items: end;
+.section_check li{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-section .section_left button{
-    color: white;
+.section_check li svg{
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+/* PRECIOS */
+.section_pay p{
+    margin: 0;
+}
+.section_pay .negrita{
+    font-weight: 600;
+}
+
+/* BOTÓN */
+.migration-button{
+    color: #fff;
     background-color: #673DE6;
     border: none;
     height: 48px;
     width: 185px;
     border-radius: 8px;
+    cursor: pointer;
 }
-
-section .section_left button span{
+.migration-button span{
     font-size: 16px;
     font-weight: 700;
 }
 
-section .section_left .section_pay .negrita{
-    font-weight: 600;
-}
-
-section .section_left .section_devolution svg{
+/* DEVOLUCIÓN */
+.section_devolution svg{
     height: 18px;
-    padding-right: 5px;
+    argin-right: 6px;
 }
 
-section .section_rigth .image_rigth_transition .image_base_transition{
-    position: absolute;
-    top: 17%;
-    left: 52%;
+/* VISUAL (IMÁGENES) */
+.hero-visual{
+    position: relative;            /* referencia para el overlay */
+    width: min(880px, 100%);
 }
+
+.hero-visual__base{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-visual__overlay{
+    position: absolute;
+    top: 18%;
+    right: clamp(12px, 3vw, 44px);
+    width: min(800px, 100%);
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+    .intro-section{
+        flex-direction: column;
+        align-items: stretch;
+        padding: 48px 16px;
+    }
+
+    .section_right{
+        justify-content: center;
+    }
+
+    .hero-visual{
+        width: min(680px, 100%);
+    }
+
+    .hero-visual__overlay{
+        top: 16%;
+        right: clamp(8px, 4vw, 24px);
+        width: min(360px, 68%);
+    }
+}
+
 
 /* Responsive: diseño apilado para pantallas pequeñas */
 @media screen and (max-width: 768px) {
@@ -341,3 +414,119 @@ button.migration-button:active {
     outline: none;
 }
 
+.button-kodee-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}
+.button-kodee-container button {
+    background-color: #673DEC;
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    gap: 8px;
+    justify-content: center;
+    line-height: 24px;
+    padding: 8px 16px;
+    border: none;
+    text-align: center;
+}
+.button-kodee-container button span {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+footer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 25px;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #222225;
+}
+
+.footer-top {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .footer-top .footer__rigth-content__logo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    color: #161718;
+}
+
+footer .footer-top .footer__rigth-content__logo-container path {
+    color: #161718;
+}
+
+footer .footer-top .footer__rigth-content__logo-container svg {
+    width: 28px;
+    color: #161718;
+}
+
+footer .footer-center {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .footer-center .footer-center__cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+footer .footer-center .footer-center__cards a {
+    color: #673de6;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+footer .footer-center .footer-center__cards .footer-center__cards__img img{
+    height: 40px;
+    width: 60px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+}
+
+footer .footer-center .footer-center__terminos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+footer .footer-center .footer-center__terminos a {
+    text-decoration: none;
+    color: #000000;
+}
+
+footer .footer-center .footer-center__terminos a:hover {
+    text-decoration: none;
+    color: #2F1C6A;
+}
+
+footer .footer-down {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
